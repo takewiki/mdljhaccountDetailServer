@@ -27,6 +27,8 @@ accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) 
 
     FStatrDate = date_startDate()
     FEndDate = date_endDate()
+
+
     data = mdljhaccountDetailPkg::accountDetail_select(erp_token =erp_token ,FStatrDate = FStatrDate,FEndDate = FEndDate)
     tsui::run_dataTable2(id ='dt_accountDetail_resultView' ,data =data )
 
@@ -42,6 +44,8 @@ accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) 
 
     FEndDate = text_bankAcntState_EndDate()
 
+    FStartDate <- as.character(FStartDate, format = "%Y-%m-%d")
+    FEndDate <- as.character(FEndDate, format = "%Y-%m-%d")
 
     mdljhaccountDetailr::sync_bank_data(erp_token=erp_token,FStartDate = FStartDate,FEndDate = FEndDate)
 
