@@ -47,7 +47,9 @@ accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) 
     FStartDate <- as.character(FStartDate, format = "%Y-%m-%d")
     FEndDate <- as.character(FEndDate, format = "%Y-%m-%d")
 
+
     mdljhaccountDetailr::sync_bank_data(erp_token=erp_token,FStartDate = FStartDate,FEndDate = FEndDate)
+
 
     tsui::pop_notice("导入完成")
 
