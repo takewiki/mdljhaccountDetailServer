@@ -13,17 +13,16 @@
 #' accountDetailSelectServer()
 accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) {
   #获取参数
-  date_startDate=tsui::var_date('date_startDate')
-  date_endDate=tsui::var_date('date_endDate')
-  text_bankAcntState_StartDate = tsui::var_date("text_bankAcntState_StartDate")
 
-  text_bankAcntState_EndDate = tsui::var_date("text_bankAcntState_EndDate")
+
 
 
 
   #查询按钮
 
   shiny::observeEvent(input$btn_accountDetail_query,{
+    date_startDate=tsui::var_date('date_startDate')
+    date_endDate=tsui::var_date('date_endDate')
 
     FStatrDate = date_startDate()
     FEndDate = date_endDate()
@@ -39,6 +38,9 @@ accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) 
   })
 
   shiny::observeEvent(input$btn_bankAcntState_view,{
+    text_bankAcntState_StartDate = tsui::var_date("text_bankAcntState_StartDate")
+
+    text_bankAcntState_EndDate = tsui::var_date("text_bankAcntState_EndDate")
 
     FStartDate=text_bankAcntState_StartDate()
 
