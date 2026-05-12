@@ -21,11 +21,11 @@ accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) 
   #查询按钮
 
   shiny::observeEvent(input$btn_accountDetail_query,{
-    date_startDate=tsui::var_date('date_startDate')
-    date_endDate=tsui::var_date('date_endDate')
+    accountDetail_date_startDate=tsui::var_date('accountDetail_date_startDate')
+    accountDetail_date_endDate=tsui::var_date('accountDetail_date_endDate')
 
-    FStatrDate = date_startDate()
-    FEndDate = date_endDate()
+    FStatrDate = accountDetail_date_startDate()
+    FEndDate = accountDetail_date_endDate()
 
 
     data = mdljhaccountDetailPkg::accountDetail_select(erp_token =erp_token ,FStatrDate = FStatrDate,FEndDate = FEndDate)
@@ -37,14 +37,14 @@ accountDetailSelectServer <- function(input,output,session,dms_token,erp_token) 
 
   })
 
-  shiny::observeEvent(input$btn_bankAcntState_view,{
-    text_bankAcntState_StartDate = tsui::var_date("text_bankAcntState_StartDate")
+  shiny::observeEvent(input$btn_accountDetail_bankAcntState_view,{
+    text_accountDetail_bankAcntState_StartDate = tsui::var_date("text_accountDetail_bankAcntState_StartDate")
 
-    text_bankAcntState_EndDate = tsui::var_date("text_bankAcntState_EndDate")
+    text_accountDetail_bankAcntState_EndDate = tsui::var_date("text_accountDetail_bankAcntState_EndDate")
 
-    FStartDate=text_bankAcntState_StartDate()
+    FStartDate=text_accountDetail_bankAcntState_StartDate()
 
-    FEndDate = text_bankAcntState_EndDate()
+    FEndDate = text_accountDetail_bankAcntState_EndDate()
 
     FStartDate <- as.character(FStartDate, format = "%Y-%m-%d")
     FEndDate <- as.character(FEndDate, format = "%Y-%m-%d")
